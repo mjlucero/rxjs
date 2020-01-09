@@ -1,30 +1,12 @@
-import { range, from } from "rxjs";
-import { filter } from "rxjs/operators";
+import { range } from "rxjs";
+import { tap, map } from "rxjs/operators";
 import "../assets/css/style.css";
 
-range(1,10).pipe(filter(value => value % 2 === 1)).subscribe(console.log);
+const numbers$ = range(1, 5);
 
-interface Character {
-    type: string;
-    name: string;
-};
-
-const characters: Character[] = [
-    {
-        type: "villain",
-        name: "Joker"
-    },
-    {
-        type: "hero",
-        name: "Batman"
-    },
-    {
-        type: "hero",
-        name: "Robin"
-    }
-];
-
-from(characters).pipe(filter(character => character.type !== "hero")).subscribe(console.log);
-
-
-
+numbers$
+  .pipe(
+    tap(x => console.log("tap", x)),
+    map(value => value * 10)
+  )
+  .subscribe(value => console.log("subs", value));
