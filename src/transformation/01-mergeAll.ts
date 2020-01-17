@@ -2,8 +2,8 @@ import "../assets/css/style.css";
 import { fromEvent, Observable } from "rxjs";
 import { debounceTime, map, pluck, mergeAll } from "rxjs/operators";
 import { ajax } from "rxjs/ajax";
-import { GithubUser } from "./interfaces/github-user.interface";
-import { GithubUsersResponse } from "./interfaces/github-users.interface";
+import { GithubUser } from "../interfaces/github-user.interface";
+import { GithubUsersResponse } from "../interfaces/github-users.interface";
 
 const bodyRef = document.querySelector("body");
 const textInput = document.createElement("input");
